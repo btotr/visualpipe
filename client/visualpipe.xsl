@@ -17,9 +17,7 @@
 		<svg version="1.1"
 			 x="0" y="0" width="100%" height="100%" onload="new Controller()">
 			<script type="application/ecmascript" xlink:href="scripts/utilities.js"/>
-			<script type="application/ecmascript" xlink:href="scripts/model.js"/>
 			<script type="application/ecmascript" xlink:href="scripts/controller.js"/>
-			<script type="application/ecmascript" xlink:href="scripts/view.js"/>
 			<script type="application/ecmascript" xlink:href="scripts/websocket.js"/>
 			<defs>  
 		        <g id="node" class="node endpoint">
