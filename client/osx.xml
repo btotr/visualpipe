@@ -2,228 +2,640 @@
 <?xml-stylesheet type="text/xsl" href="visualpipe.xsl" ?>
 <commands>
 	<command name="awk" description="Find and Replace text within file(s)">
-		<option name="F" description="Define the input field separator = regular expression fs."/>
-		<option name="v" description="var=value Assign values before prog is executed, any number of -v options may be present."/>
-		<option name="f" description="Set the maximum size of the input record (MaxRows)"/>
-		<option name="mr" description="progfile  Specify a pattern to match within progfile rather then on the command line."/>
-		<option name="mf" description="Set the maximum number of fields (MaxFields)"/>
+		<option name="string" description="arguments"/>
+		<option name="-F" description="Define the input field separator = regular expression fs."/>
+		<option name="-v" description="var=value Assign values before prog is executed, any number of -v options may be present."/>
+		<option name="-f" description="Set the maximum size of the input record (MaxRows)"/>
+		<option name="-mr" description="progfile  Specify a pattern to match within progfile rather then on the command line."/>
+		<option name="-mf" description="Set the maximum number of fields (MaxFields)"/>
 	</command>
-	<command name="basename" description="Convert a full pathname to just a filename"/>
-	<command name="bash" description="Bourne-Again SHell"/>
-	<command name="bg" description="Send to background"/>
-	<command name="bind" description="Display readline key and function bindings"/>
-	<command name="bless" description="Set volume bootability and startup disk options."/>
-	<command name="builtin" description="Execute a shell builtin"/>
-	<command name="bzip" description="Compress or decompress files"/>
+	<command name="basename" description="Convert a full pathname to just a filename">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="bzip" description="Compress or decompress files">
+		<option name="string" description="arguments"/>
+	</command>
 	<command name="cal" description="Display a calendar">
-	   	<option name="j" description="Display Julian days (days one-based, numbered from January 1)."/>
-		<option name="y" description="Display a calendar for the specified year"/>.
+	   	<option value="false" name="-j" description="Display Julian days (days one-based, numbered from January 1)."/>
+		<option name="-y" description="Display a calendar for the specified year"/>
 	</command>
-	<command name="caller" description="Return the context of a subroutine call"/>
-	<command name="case" description="Conditionally perform a command"/>
-	<command name="cat" description="Concatenate and print (display) the contents of file(s)"/>
-	<command name="cd" description="Change Directory"/>
-	<command name="chflags" description="Change a file or folders flags"/>
-	<command name="chgrp" description="Change group ownership"/>
-	<command name="chmod" description="Change access permissions"/>
-	<command name="chown" description="Change file owner and group"/>
-	<command name="chroot" description="Run a command with a different root directory"/>
-	<command name="cksum" description="Print CRC checksum and byte counts"/>
-	<command name="clear" description="Clear terminal screen"/>
-	<command name="cmp" description="Compare two files"/>
-	<command name="comm" description="Compare two sorted files line by line"/>
-	<command name="command" description="Run a command (not a function)"/>
-	<command name="complete" description="Edit a command completion [word/pattern/list]"/>
-	<command name="continue" description="Resume the next iteration of a loop"/>
-	<command name="cp" description="Copy one or more files to another location"/>
-	<command name="cron" description="Daemon to execute scheduled commands"/>
-	<command name="crontab" description="Schedule a command to run at a later date/time"/>
-	<command name="curl" description="Transfer data  from or to a server"/>
-	<command name="cut" description="Divide a file into several parts"/>
-	<command name="date" description="Display or change the date &amp; time"/>
-	<command name="dc" description="Desk Calculator"/>
-	<command name="dd" description="Data Dump - Convert and copy a file"/>
-	<command name="declare" description="Declare variable &amp; set attributes"/>
-	<command name="defaults" description="Set preferences, show hidden files"/>
-	<command name="df" description="Display free disk space"/>
-	<command name="diff" description="Display the differences between two files"/>
-	<command name="diff3" description="Show differences among three files"/>
-	<command name="dig" description="DNS lookup"/>
-	<command name="dirname" description="Convert a full pathname to just a path"/>
-	<command name="dirs" description="Display list of remembered directories"/>
-	<command name="diskutil" description="Disk utilities - Format, Verify, Repair"/>
-	<command name="disown" description="Unbind a job from the current login session"/>
-	<command name="ditto" description="Copy files and folders"/>
-	<command name="dot_clean" description="Remove dot-underscore files"/>
-	<command name="drutil" description="Interact with CD/DVD burners"/>
-	<command name="dscl" description=" Directory Service command line utility"/>
-	<command name="du" description="Estimate file space usage"/>
-	<command name="echo" description="Display message on screen"/>
-	<command name="ed" description="A line-oriented text editor (edlin)"/>
-	<command name="enable" description="Enable and disable builtin shell commands"/>
-	<command name="env" description="List or Set environment variables"/>
-	<command name="eval" description="Evaluate several commands/arguments"/>
-	<command name="exec" description="Execute a command"/>
-	<command name="exit" description="Exit the shell"/>
-	<command name="expand" description="Convert tabs to spaces"/>
-	<command name="expect" description="Programmed dialogue with interactive programs"/>
-	<command name="export" description="Set an environment variable"/>
-	<command name="expr" description="Evaluate expressions"/>
-	<command name="false" description="Do nothing, unsuccessfully"/>
-	<command name="fc" description="Fix command (history)"/>
-	<command name="fdisk" description="Partition table manipulator for Darwin UFS/HFS/DOS"/>
-	<command name="fg" description="Send job to foreground"/>
-	<command name="file" description="Determine file type"/>
-	<command name="find" description="Search for files that meet a desired criteria"/>
-	<command name="fmt" description="Reformat paragraph text"/>
-	<command name="fold" description="Wrap text to fit a specified width"/>
-	<command name="for" description="Loop command"/>
-	<command name="fsck" description="Filesystem consistency check and repair"/>
-	<command name="fsaclctl" description="Filesystem enable/disable ACL support"/>
-	<command name="fs_usage" description="Filesystem usage (process/pathname)"/>
-	<command name="ftp" description="Internet file transfer program"/>
-	<command name="getopt" description="Parse positional parameters"/>
-	<command name="getopts" description="Parse positional parameters"/>
-	<command name="goto" description="Jump to label and continue execution"/>
-	<command name="grep" description="Search file(s) for lines that match a given pattern"/>
-	<command name="groups" description="Print group names a user is in"/>
-	<command name="gzip" description="Compress or decompress files"/>
-	<command name="halt" description="Stop and restart the operating system"/>
-	<command name="hash" description="Refresh the cached/remembered location of commands"/>
-	<command name="head" description="Display the first lines of a file"/>
-	<command name="hdiutil" description="Manipulate iso disk images"/>
-	<command name="history" description="Command History"/>
-	<command name="hostname" description="Print or set system name"/>
-	<command name="iconv" description="Convert the character set of a file"/>
-	<command name="id" description="Print user and group names/ids"/>
-	<command name="info" description="Help info"/>
-	<command name="install" description="Copy files and set attributes"/>
-	<command name="jobs" description="List active jobs"/>
-	<command name="join" description="Join lines on a common field"/>
-	<command name="kextfind" description="List kernel extensions"/>
-	<command name="kickstart" description="Configure Apple Remote Desktop"/>
-	<command name="kill" description="Stop a process from running"/>
-	<command name="last" description="Indicate last logins of users and ttys"/>
-	<command name="launchctl" description="Load or unload daemons/agents"/>
-	<command name="less" description="Display output one screen at a time"/>
-	<command name="let" description="Evaluate expression"/>
-	<command name="lipo" description="Convert a universal binary"/>
-	<command name="ln" description="Make links between files (hard links, symbolic links)"/>
-	<command name="local" description="Set a local (function) variable"/>
-	<command name="locate" description="Find files"/>
-	<command name="logname" description="Print current login name"/>
-	<command name="login" description="log into the computer"/>
-	<command name="logout" description="Exit a login shell (bye)"/>
-	<command name="lpr" description="Print files"/>
-	<command name="lprm" description="Remove jobs from the print queue"/>
-	<command name="lpstat" description="Printer status information"/>
-	<command name="ls" description="List information about file(s)"/>
-	<command name="lsbom" description="List a bill of materials file"/>
-	<command name="lsof" description="List open files"/>
-	<command name="man" description="Help manual"/>
-	<command name="mdfind" description="Spotlight search"/>
-	<command name="mdutil" description="Manage Spotlight metadata store"/>
-	<command name="mkdir" description="Create new folder(s)"/>
-	<command name="mkfifo" description="Make FIFOs (named pipes)"/>
-	<command name="more" description="Display output one screen at a time"/>
-	<command name="mount" description="Mount a file system"/>
-	<command name="mv" description="Move or rename files or directories"/>
-	<command name="net" description="Manage network resources"/>
-	<command name="netstat" description="Show network status"/>
-	<command name="nice" description="Set the priority of a command"/>
-	<command name="nohup" description="Run a command immune to hangups"/>
-	<command name="ntfs.util" description="NTFS file system utility"/>
-	<command name="onintr" description="Control the action of a shell interrupt"/>
-	<command name="open" description="Open a file/folder/URL/Application"/>
-	<command name="opensnoop" description="Snoop file opens as they occur"/>
-	<command name="passwd" description="Modify a user password"/>
-	<command name="paste" description="Merge lines of files"/>
-	<command name="pbcopy" description="Copy data to the clipboard"/>
-	<command name="pbpaste" description="Paste data from the Clipboard"/>
-	<command name="pico" description="Simple text editor"/>
-	<command name="ping" description="Test a network connection"/>
-	<command name="pkgutil" description="Query and manipulate installed packages"/>
-	<command name="plutil" description="Property list utility"/>
-	<command name="pmset" description="Power Management settings"/>
-	<command name="popd" description="Restore the previous value of the current directory"/>
-	<command name="pr" description="Convert text files for printing"/>
-	<command name="printenv" description="List environment variables"/>
-	<command name="printf" description="Format and print data"/>
-	<command name="ps" description="Process status"/>
-	<command name="pushd" description="Save and then change the current directory"/>
-	<command name="pwd" description="Print Working Directory"/>
-	<command name="quota" description="Display disk usage and limits"/>
-	<command name="rcp" description="Copy files between machines"/>
-	<command name="read" description="Read one line from standard input"/>
-	<command name="readonly" description="Mark a variable or function as read-only"/>
-	<command name="reboot" description="Stop and restart the system"/>
-	<command name="return" description="Exit a function"/>
-	<command name="rev" description="Reverse lines of a file"/>
-	<command name="rm" description="Remove files"/>
-	<command name="rmdir" description="Remove folder(s)"/>
-	<command name="rpm" description="Remote Package Manager"/>
-	<command name="rsync" description="Remote file copy - Sync file tree (also RsyncX)"/>
-	<command name="say" description="Convert text to audible speech"/>
-	<command name="screen" description="Multiplex terminal, run remote shells via ssh"/>
-	<command name="sdiff" description="Merge two files interactively"/>
-	<command name="sed" description="Stream Editor"/>
-	<command name="select" description="Generate a list of items"/>
-	<command name="set" description="Set a shell variable = value"/>
-	<command name="setfile" description="Set attributes of HFS+ files"/>
-	<command name="shift" description="Shift positional parameters"/>
-	<command name="shopt" description="Set shell options"/>
-	<command name="shutdown" description="Shutdown or restart OS X"/>
-	<command name="sips" description="Scriptable image processing system"/>
-	<command name="sleep" description="Delay for a specified time"/>
-	<command name="sort" description="Sort text files"/>
-	<command name="source" description="Execute commands from a file"/>
-	<command name="split" description="Split a file into fixed-size pieces"/>
-	<command name="stop" description="Stop a job or process"/>
-	<command name="su" description="Substitute user identity"/>
-	<command name="sudo" description="Execute a command as another user"/>
-	<command name="sum" description="Print a checksum for a file"/>
-	<command name="suspend" description="Suspend execution of this shell"/>
-	<command name="sw_vers" description="Print Mac OS X operating system version"/>
-	<command name="tail" description="Output the last part of files"/>
-	<command name="tar" description="Tape ARchiver"/>
-	<command name="tee" description="Redirect output to multiple files"/>
-	<command name="test" description="Condition evaluation"/>
-	<command name="textutil" description="Manipulate text files in various formats (Doc,html,rtf)"/>
-	<command name="time" description="Measure Program Resource Use"/>
-	<command name="times" description="Print shell &amp; shell process times"/>
-	<command name="top" description="Display process information"/>
-	<command name="touch" description="Change file timestamps"/>
-	<command name="tr" description="Translate, squeeze, and/or delete characters"/>
-	<command name="trap" description="Execute a command when the shell receives a signal"/>
-	<command name="true" description="Do nothing, successfully"/>
-	<command name="tty" description="Print filename of terminal on stdin"/>
-	<command name="type" description="Describe a command"/>
-	<command name="ufs.util" description="Mount/unmount UFS file system"/>
-	<command name="ulimit" description="limit the use of system-wide resources"/>
-	<command name="umask" description="Users file creation mask"/>
-	<command name="umount" description="Unmount a device"/>
-	<command name="unalias" description="Remove an alias"/>
-	<command name="uname" description="Print system information"/>
-	<command name="unexpand" description="Convert spaces to tabs"/>
-	<command name="uniq" description="Uniquify files"/>
-	<command name="units" description="Convert units from one scale to another"/>
-	<command name="unset" description="Remove variable or function names"/>
-	<command name="until" description="Loop command"/>
-	<command name="uptime" description="Show how long system has been running"/>
-	<command name="users" description="Print login names of users currently logged in"/>
-	<command name="uuencode" description="Encode a binary file"/>
-	<command name="uudecode" description="Decode a file created by uuencode"/>
-	<command name="uuidgen" description="Generate a Unique ID (UUID/GUID)"/>
-	<command name="uucp" description="Unix to Unix copy"/>
-	<command name="wait" description="Wait for a process to complete"/>
-	<command name="wc" description="Print byte, word, and line counts"/>
-	<command name="whatis" description="Search the whatis database for complete words"/>
-	<command name="where" description="Report all known instances of a command"/>
-	<command name="which" description="Locate a program file in the user's path"/>
-	<command name="while" description="Loop command"/>
-	<command name="who" description="Print all usernames currently logged on"/>
-	<command name="whoami" description="Print the current user id and name (`id -un')"/>
-	<command name="write" description="Send a message to another user"/>
-	<command name="xargs" description="Execute utility - passing arguments"/>
-	<command name="yes" description="Print a string until interrupted"/>
+	<command name="cat" description="Concatenate and print (display) the contents of file(s)">
+		<option name="string" description="arguments"/>
+		<option name="-b" description="Number the non-blank output lines, starting at 1"/>
+		<option name="-n" description="Display non-printing characters (see the -v option), and display a dollar sign ($) at the end of each line."/>
+		<option name="-s" description="Squeeze multiple adjacent empty lines, causing the output to be single spaced."/>
+		<option name="-t" description="Display non-printing characters (see the -v option), and display tab characters as ^I"/>
+		<option name="-u" description="Disable output buffering"/>
+		<option name="-v" description="Display non-printing characters so they are visible."/>
+		<option name="-b" description="Number the non-blank output lines, starting at 1"/>
+	</command>
+	<command name="cd" description="Change Directory">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="chflags" description="Change a file or folders flags">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="chgrp" description="Change group ownership">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="chmod" description="Change access permissions">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="chown" description="Change file owner and group">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="chroot" description="Run a command with a different root directory">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="cksum" description="Print CRC checksum and byte counts">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="clear" description="Clear terminal screen">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="cmp" description="Compare two files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="comm" description="Compare two sorted files line by line">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="command" description="Run a command (not a function)">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="complete" description="Edit a command completion [word/pattern/list]">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="cp" description="Copy one or more files to another location">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="cron" description="Daemon to execute scheduled commands">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="crontab" description="Schedule a command to run at a later date/time">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="curl" description="Transfer data  from or to a server">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="cut" description="Divide a file into several parts">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="date" description="Display or change the date &amp; time">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="dc" description="Desk Calculator">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="dd" description="Data Dump - Convert and copy a file">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="declare" description="Declare variable &amp; set attributes">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="defaults" description="Set preferences, show hidden files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="df" description="Display free disk space">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="diff" description="Display the differences between two files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="diff3" description="Show differences among three files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="dig" description="DNS lookup">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="dirname" description="Convert a full pathname to just a path">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="dirs" description="Display list of remembered directories">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="diskutil" description="Disk utilities - Format, Verify, Repair">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="disown" description="Unbind a job from the current login session">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="ditto" description="Copy files and folders">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="dot_clean" description="Remove dot-underscore files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="drutil" description="Interact with CD/DVD burners">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="dscl" description=" Directory Service command line utility">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="du" description="Estimate file space usage">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="echo" description="Display message on screen">
+		<option name="string" description="string to echo"/>
+	</command>
+	<command name="ed" description="A line-oriented text editor (edlin)">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="enable" description="Enable and disable builtin shell commands">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="env" description="List or Set environment variables">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="eval" description="Evaluate several commands/arguments">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="exec" description="Execute a command">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="exit" description="Exit the shell">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="expand" description="Convert tabs to spaces">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="expect" description="Programmed dialogue with interactive programs">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="export" description="Set an environment variable">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="expr" description="Evaluate expressions">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="false" description="Do nothing, unsuccessfully">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="fc" description="Fix command (history)">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="fdisk" description="Partition table manipulator for Darwin UFS/HFS/DOS">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="fg" description="Send job to foreground">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="file" description="Determine file type">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="find" description="Search for files that meet a desired criteria">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="fmt" description="Reformat paragraph text">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="fold" description="Wrap text to fit a specified width">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="for" description="Loop command">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="fsck" description="Filesystem consistency check and repair">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="fsaclctl" description="Filesystem enable/disable ACL support">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="fs_usage" description="Filesystem usage (process/pathname)">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="ftp" description="Internet file transfer program">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="getopt" description="Parse positional parameters">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="getopts" description="Parse positional parameters">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="goto" description="Jump to label and continue execution">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="grep" description="Search file(s) for lines that match a given pattern">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="groups" description="Print group names a user is in">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="gzip" description="Compress or decompress files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="halt" description="Stop and restart the operating system">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="hash" description="Refresh the cached/remembered location of commands">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="head" description="Display the first lines of a file">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="hdiutil" description="Manipulate iso disk images">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="history" description="Command History">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="hostname" description="Print or set system name">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="iconv" description="Convert the character set of a file">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="id" description="Print user and group names/ids">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="info" description="Help info">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="install" description="Copy files and set attributes">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="jobs" description="List active jobs">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="join" description="Join lines on a common field">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="kextfind" description="List kernel extensions">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="kickstart" description="Configure Apple Remote Desktop">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="kill" description="Stop a process from running">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="last" description="Indicate last logins of users and ttys">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="launchctl" description="Load or unload daemons/agents">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="less" description="Display output one screen at a time">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="let" description="Evaluate expression">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="lipo" description="Convert a universal binary">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="ln" description="Make links between files (hard links, symbolic links)">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="local" description="Set a local (function) variable">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="locate" description="Find files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="logname" description="Print current login name">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="login" description="log into the computer">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="logout" description="Exit a login shell (bye)">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="lpr" description="Print files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="lprm" description="Remove jobs from the print queue">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="lpstat" description="Printer status information">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="ls" description="List information about file(s)">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="lsbom" description="List a bill of materials file">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="lsof" description="List open files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="man" description="Help manual">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="mdfind" description="Spotlight search">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="mdutil" description="Manage Spotlight metadata store">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="mkdir" description="Create new folder(s)">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="mkfifo" description="Make FIFOs (named pipes)">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="more" description="Display output one screen at a time">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="mount" description="Mount a file system">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="mv" description="Move or rename files or directories">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="net" description="Manage network resources">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="netstat" description="Show network status">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="nice" description="Set the priority of a command">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="nohup" description="Run a command immune to hangups">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="ntfs.util" description="NTFS file system utility">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="onintr" description="Control the action of a shell interrupt">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="open" description="Open a file/folder/URL/Application">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="opensnoop" description="Snoop file opens as they occur">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="passwd" description="Modify a user password">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="paste" description="Merge lines of files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="pbcopy" description="Copy data to the clipboard">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="pbpaste" description="Paste data from the Clipboard">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="pico" description="Simple text editor">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="ping" description="Test a network connection">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="pkgutil" description="Query and manipulate installed packages">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="plutil" description="Property list utility">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="pmset" description="Power Management settings">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="popd" description="Restore the previous value of the current directory">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="pr" description="Convert text files for printing">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="printenv" description="List environment variables">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="printf" description="Format and print data">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="ps" description="Process status">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="pushd" description="Save and then change the current directory">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="pwd" description="Print Working Directory">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="quota" description="Display disk usage and limits">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="rcp" description="Copy files between machines">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="read" description="Read one line from standard input">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="readonly" description="Mark a variable or function as read-only">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="reboot" description="Stop and restart the system">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="return" description="Exit a function">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="rev" description="Reverse lines of a file">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="rm" description="Remove files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="rmdir" description="Remove folder(s)">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="rpm" description="Remote Package Manager">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="rsync" description="Remote file copy - Sync file tree (also RsyncX)">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="say" description="Convert text to audible speech">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="screen" description="Multiplex terminal, run remote shells via ssh">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="sdiff" description="Merge two files interactively">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="sed" description="Stream Editor">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="select" description="Generate a list of items">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="set" description="Set a shell variable = value">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="setfile" description="Set attributes of HFS+ files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="shift" description="Shift positional parameters">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="shopt" description="Set shell options">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="shutdown" description="Shutdown or restart OS X">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="sips" description="Scriptable image processing system">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="sleep" description="Delay for a specified time">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="sort" description="Sort text files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="source" description="Execute commands from a file">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="split" description="Split a file into fixed-size pieces">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="stop" description="Stop a job or process">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="su" description="Substitute user identity">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="sudo" description="Execute a command as another user">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="sum" description="Print a checksum for a file">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="suspend" description="Suspend execution of this shell">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="sw_vers" description="Print Mac OS X operating system version">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="tail" description="Output the last part of files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="tar" description="Tape ARchiver">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="tee" description="Redirect output to multiple files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="test" description="Condition evaluation">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="textutil" description="Manipulate text files in various formats (Doc,html,rtf)">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="time" description="Measure Program Resource Use">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="times" description="Print shell &amp; shell process times">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="top" description="Display process information">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="touch" description="Change file timestamps">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="tr" description="Translate, squeeze, and/or delete characters">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="trap" description="Execute a command when the shell receives a signal">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="true" description="Do nothing, successfully">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="tty" description="Print filename of terminal on stdin">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="type" description="Describe a command">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="ufs.util" description="Mount/unmount UFS file system">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="ulimit" description="limit the use of system-wide resources">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="umask" description="Users file creation mask">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="umount" description="Unmount a device">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="unalias" description="Remove an alias">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="uname" description="Print system information">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="unexpand" description="Convert spaces to tabs">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="uniq" description="Uniquify files">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="units" description="Convert units from one scale to another">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="unset" description="Remove variable or function names">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="until" description="Loop command">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="uptime" description="Show how long system has been running">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="users" description="Print login names of users currently logged in">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="uuencode" description="Encode a binary file">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="uudecode" description="Decode a file created by uuencode">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="uuidgen" description="Generate a Unique ID (UUID/GUID)">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="uucp" description="Unix to Unix copy">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="wait" description="Wait for a process to complete">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="wc" description="Print byte, word, and line counts">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="whatis" description="Search the whatis database for complete words">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="where" description="Report all known instances of a command">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="which" description="Locate a program file in the user's path">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="while" description="Loop command">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="who" description="Print all usernames currently logged on">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="whoami" description="Print the current user id and name (`id -un')">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="write" description="Send a message to another user">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="xargs" description="Execute utility - passing arguments">
+		<option name="string" description="arguments"/>
+	</command>
+	<command name="yes" description="Print a string until interrupted">
+		<option name="string" description="arguments"/>
+	</command>
 </commands>
