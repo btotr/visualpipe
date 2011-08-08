@@ -46,10 +46,15 @@
 							<dt><xsl:value-of select="@name"/></dt>
 							<dd><xsl:value-of select="@description"/></dd>
 							<dd> +
-								<ul>
+								<ul class="arguments">
 									<xsl:for-each select="option">
-										<dt><xsl:value-of select="@name"/></dt>
-										<dd><xsl:value-of select="@description"/></dd>
+										<li>
+											<xsl:if test="not(@value='false')">
+												<xsl:attribute name="class">prompt</xsl:attribute>
+										     </xsl:if>
+											<span class="name"><xsl:value-of select="@name"/></span>
+											<span class="description"><xsl:value-of select="@description"/></span>
+										</li>
 									 </xsl:for-each>
 								</ul>
 							</dd>

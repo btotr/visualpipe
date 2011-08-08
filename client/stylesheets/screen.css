@@ -21,6 +21,11 @@
     fill:#0A7693;
 }
 
+.node rect:hover,
+.node text:hover {
+	cursor:pointer;
+}
+
 line.connection {
     fill:#E2E2E2;
     stroke:#78CFE4;
@@ -81,10 +86,46 @@ dt + dd + dd + dt {
 	clear:left;
 }
 
-dl ul {
+ul.arguments {
 	display:none;
+	list-style-type:none;
 }
 
-dl dd + dd:active ul {
+ul.arguments.active {
+	display:block;
+  	cursor:pointer;
+}
+
+ul.arguments li {
+	font-family:helvetica;
+	padding:4px;
+	margin-bottom:2px;
+	border-bottom:solid 1px gray;
+	
+}
+
+ul.arguments li:hover {
+	background-color:#78CFE4;
+}
+
+ul.arguments li:hover .description {
+	color:white;
+}
+
+ul.arguments .name {
+	display:block;
+	width:100%;
+}
+
+ul.arguments .description {
+		display:block;
+	width:100%;
+	color:#CCC;
+
+}
+
+
+
+dl dd + dd:active ul.arguments {
 	display:inline-block;
 }
