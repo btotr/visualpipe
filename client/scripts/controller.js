@@ -16,11 +16,16 @@ Controller.prototype.addCommand = function(command){
 
 Controller.prototype.addArguments = function(e) {
 	var argument = e.target.parentNode.querySelector(".name").textContent
+	// use an empty argumument for string values such-as #echo string
+	if (argument == "string") argument = "";
 	if (e.target.parentNode.hasClassName("prompt")) {
 		var prompt = window.prompt("arguments?")
 		if(!prompt) return
 		argument = argument + " " + prompt;
 	}
+	
+	
+	
  	var name = e.currentTarget.getAttribute("rel")
 	var index  = 0;
 	this.commands.forEach(function(i){
