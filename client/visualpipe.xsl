@@ -44,6 +44,7 @@
 			<foreignObject id="commands" width="100%" height="100%" y="50">
 					<dl  xmlns="http://www.w3.org/1999/xhtml">
 						<xsl:for-each select="commands/command">
+							<xsl:sort select="@name"/>
 							<dt><xsl:value-of select="@name"/></dt>
 							<dd><xsl:value-of select="normalize-space(@description)"/></dd>
 							<dd> +
