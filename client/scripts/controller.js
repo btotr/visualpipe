@@ -39,8 +39,7 @@ Controller.prototype.removeNode = function(e){
 	}
 }
 
-Controller.prototype.addArguments = function(e) {
- 	var name = e.currentTarget.getAttribute("rel")
+Controller.prototype.addArguments = function(name) {
 	var index = rindex = 0;
 	this.commands.forEach(function(i){
 		if (i.indexOf(name) != -1) {
@@ -57,30 +56,15 @@ Controller.prototype.addArguments = function(e) {
 Controller.prototype.showArguments = function(e) {
 	if (e.altKey) return
 	if (e.target.tagName != "rect" && e.target.tagName != "text") return
-	var self = this;
 	
-	function hide(e){
-		if(e.target != document.documentElement) return
-		//	if(e.target.parentNode.getAttribute("class") != "prompt") return
-		var argumentMenu = document.getElementById("argumentsMenu")
-		document.documentElement.removeChild(argumentMenu);
-		document.removeEventListener("click", hide,false)	
-	}
-	
+	var self = this
 	function show(argumentList, command){
-		var foreignObject  = document.createElementNS(xmlns, "foreignObject")
-		foreignObject.setAttribute("transform", e.currentTarget.getAttribute("transform"));
-		foreignObject.setAttribute("width", "300px");
-		foreignObject.setAttribute("height" ,"100%");
-		foreignObject.setAttribute("y" ,"40px");
-		foreignObject.setAttribute("id" ,"argumentsMenu");
-		var clonedArguments = argumentList.cloneNode(true)
-		clonedArguments.addClassName("active")
-		clonedArguments.setAttribute("rel" ,command);
-		clonedArguments.addEventListener("click", self.addArguments.bind(self),false)
-		foreignObject.appendChild(clonedArguments)
-		document.documentElement.appendChild(foreignObject)
-		document.addEventListener("click", hide,false)
+		var name = e.currentTarget.getElementsByTagName("text")[0].textContent
+		console.group(name)
+		for (var i =0,l=argumentList.children.length;i<l;i++)
+			console.log(argumentList.children[i].children[0].textContent,argumentList.children[i].children[1].textContent)
+		console.groupEnd()			
+		self.addArguments(name)
 	}
 	 
 	var command = e.currentTarget.getElementsByTagName("text")[0].textContent
