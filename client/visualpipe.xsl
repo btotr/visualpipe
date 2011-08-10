@@ -8,6 +8,7 @@
 		doctype-system="http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" 
 		doctype-public="-//W3C//DTD SVG 1.1//EN" 
 		indent="yes" />
+		
 
 	<xsl:template match="/">
 		<xsl:processing-instruction name="xml-stylesheet">
@@ -44,7 +45,7 @@
 					<dl  xmlns="http://www.w3.org/1999/xhtml">
 						<xsl:for-each select="commands/command">
 							<dt><xsl:value-of select="@name"/></dt>
-							<dd><xsl:value-of select="@description"/></dd>
+							<dd><xsl:value-of select="normalize-space(@description)"/></dd>
 							<dd> +
 								<ul class="arguments">
 									<xsl:for-each select="option">
@@ -53,7 +54,7 @@
 												<xsl:attribute name="class">prompt</xsl:attribute>
 										     </xsl:if>
 											<span class="name"><xsl:value-of select="@name"/></span>
-											<span class="description"><xsl:value-of select="@description"/></span>
+											<span class="description"><xsl:value-of select="normalize-space(@description)"/></span>
 										</li>
 									 </xsl:for-each>
 								</ul>
