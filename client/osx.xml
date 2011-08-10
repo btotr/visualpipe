@@ -2,7 +2,6 @@
 <?xml-stylesheet type="text/xsl" href="visualpipe.xsl" ?>
 <commands>
 	<command name="awk" description="Find and Replace text within file(s)">
-		<option name="string" description="arguments"/>
 		<option name="-F" description="Define the input field separator = regular expression fs."/>
 		<option name="-v" description="var=value Assign values before prog is executed, any number of -v options may be present."/>
 		<option name="-f" description="Set the maximum size of the input record (MaxRows)"/>
@@ -10,17 +9,28 @@
 		<option name="-mf" description="Set the maximum number of fields (MaxFields)"/>
 	</command>
 	<command name="basename" description="Convert a full pathname to just a filename">
-		<option name="string" description="arguments"/>
+		<option name="-a" description="Treat every argument as a string (as if basename were invoked with just one argument)"/>
+		<option name="-s" description="The suffix is taken as its argument, all other arguments are treated as a string."/>
 	</command>
 	<command name="bzip" description="Compress or decompress files">
-		<option name="string" description="arguments"/>
+		<option name="-c --stdout --to-stdout Write output on standard output."/>
+		<option name="-d" description="--decompress --uncompress         Force  decompression. bzip2, bunzip2 and bzcat are really the         same program, and the decision about what actions to take  is         done on the basis of which name is used. This flag overrides         that mechanism, and forces bzip2 to decompress."/>
+		<option name="-z" description="--compress         The complement to -d: force compression, regardless of the         invocation name."/>
+		<option name="-t" description="--test         Check integrity of the specified file(s), but don't decompress         them. This really performs a trial decompression and throws         away the result."/>
+		<option name="-f" description="--force         Force overwrite of output files. Normally, bzip2 will not over-         write existing output files. Also forces bzip2 to break hard         links to files, which it otherwise wouldn't do.          bzip2 normally declines to decompress files which don't have the         correct magic header bytes.  If forced (-f), however, it  will         pass such files through unmodified. This is how GNU gzip         behaves."/>
+		<option name="-k" description="--keep         Keep (don't delete) input files during compression or decompression."/>
+		<option name="-s" description="--small         Reduce memory usage, for compression, decompression and testing.         Files are decompressed and tested  using a modified  algorithm         which only requires  2.5 bytes per block byte.  This means any         file can be decompressed in 2300k of  memory, albeit at about         half the normal speed.          During  compression, -s selects a block size of 200k, which lim-         its memory use to around the same figure, at the expense of your         compression  ratio. In short, if your machine is low on memory         (8 megabytes or less), use -s for everything.  See MEMORY  MAN-         AGEMENT below."/>
+		<option name="-q" description="--quiet         Suppress non-essential warning messages.  Messages pertaining to         I/O errors and other critical events will not be suppressed."/>
+		<option name="-v" description="--verbose         Verbose mode -- show the compression ratio for  each  file  pro-         cessed.   Further -vs increase the verbosity level, spewing out         lots of information which is primarily of interest for  diagnos-         tic purposes."/>
+		<option name="-L" description="--license -V --version         Display the software version, license terms and conditions."/>
+		<option name="-1" description="(or --fast) to -9 (or --best)         Set  the  block size to 100 k, 200 k ..  900 k when compressing.         Has no effect when decompressing.  See MEMORY MANAGEMENT  below.         The --fast and --best aliases are primarily for GNU gzip compat-         ibility.  In particular, --fast  doesnt  make  things  signifi-         cantly faster.  And --best merely selects the default behaviour."/>
+		<option name="--" description="Treats all subsequent arguments as  file  names,  even  if  they         start  with  a dash.  This is so you can handle files with names         beginning with a dash, for example: bzip2 -- -myfilename."/>
 	</command>
 	<command name="cal" description="Display a calendar">
-	   	<option value="false" name="-j" description="Display Julian days (days one-based, numbered from January 1)."/>
+		<option name="-j" description="Display Julian days (days one-based, numbered from January 1)."/>
 		<option name="-y" description="Display a calendar for the specified year"/>
 	</command>
 	<command name="cat" description="Concatenate and print (display) the contents of file(s)">
-		<option name="string" description="arguments"/>
 		<option name="-b" description="Number the non-blank output lines, starting at 1"/>
 		<option name="-n" description="Display non-printing characters (see the -v option), and display a dollar sign ($) at the end of each line."/>
 		<option name="-s" description="Squeeze multiple adjacent empty lines, causing the output to be single spaced."/>
@@ -30,612 +40,152 @@
 		<option name="-b" description="Number the non-blank output lines, starting at 1"/>
 	</command>
 	<command name="cd" description="Change Directory">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="chflags" description="Change a file or folders flags">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="chgrp" description="Change group ownership">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="chmod" description="Change access permissions">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="chown" description="Change file owner and group">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="chroot" description="Run a command with a different root directory">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="cksum" description="Print CRC checksum and byte counts">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="clear" description="Clear terminal screen">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="cmp" description="Compare two files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="comm" description="Compare two sorted files line by line">
-		<option name="string" description="arguments"/>
+		<option name="-P" description="Use the physical directory structure instead of following symbolic links (see also the -P option to the set builtin command)"/>
+		<option name="-L" description="Force symbolic links to be followed"/>
 	</command>
 	<command name="command" description="Run a command (not a function)">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="complete" description="Edit a command completion [word/pattern/list]">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="cp" description="Copy one or more files to another location">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="cron" description="Daemon to execute scheduled commands">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="crontab" description="Schedule a command to run at a later date/time">
-		<option name="string" description="arguments"/>
+		<option name="-p" description="Use a default value for PATH that will find all the standard utilities."/>
+		<option name="-v" description="Print a description of command"/>
+		<option name="-V" description="Print a verbose description of command"/>
 	</command>
 	<command name="curl" description="Transfer data  from or to a server">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="cut" description="Divide a file into several parts">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="date" description="Display or change the date &amp; time">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="dc" description="Desk Calculator">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="dd" description="Data Dump - Convert and copy a file">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="declare" description="Declare variable &amp; set attributes">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="defaults" description="Set preferences, show hidden files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="df" description="Display free disk space">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="diff" description="Display the differences between two files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="diff3" description="Show differences among three files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="dig" description="DNS lookup">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="dirname" description="Convert a full pathname to just a path">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="dirs" description="Display list of remembered directories">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="diskutil" description="Disk utilities - Format, Verify, Repair">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="disown" description="Unbind a job from the current login session">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="ditto" description="Copy files and folders">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="dot_clean" description="Remove dot-underscore files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="drutil" description="Interact with CD/DVD burners">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="dscl" description=" Directory Service command line utility">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="du" description="Estimate file space usage">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="echo" description="Display message on screen">
-		<option name="string" description="string to echo"/>
-	</command>
-	<command name="ed" description="A line-oriented text editor (edlin)">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="enable" description="Enable and disable builtin shell commands">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="env" description="List or Set environment variables">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="eval" description="Evaluate several commands/arguments">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="exec" description="Execute a command">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="exit" description="Exit the shell">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="expand" description="Convert tabs to spaces">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="expect" description="Programmed dialogue with interactive programs">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="export" description="Set an environment variable">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="expr" description="Evaluate expressions">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="false" description="Do nothing, unsuccessfully">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="fc" description="Fix command (history)">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="fdisk" description="Partition table manipulator for Darwin UFS/HFS/DOS">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="fg" description="Send job to foreground">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="file" description="Determine file type">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="find" description="Search for files that meet a desired criteria">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="fmt" description="Reformat paragraph text">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="fold" description="Wrap text to fit a specified width">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="for" description="Loop command">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="fsck" description="Filesystem consistency check and repair">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="fsaclctl" description="Filesystem enable/disable ACL support">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="fs_usage" description="Filesystem usage (process/pathname)">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="ftp" description="Internet file transfer program">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="getopt" description="Parse positional parameters">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="getopts" description="Parse positional parameters">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="goto" description="Jump to label and continue execution">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="grep" description="Search file(s) for lines that match a given pattern">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="groups" description="Print group names a user is in">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="gzip" description="Compress or decompress files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="halt" description="Stop and restart the operating system">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="hash" description="Refresh the cached/remembered location of commands">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="head" description="Display the first lines of a file">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="hdiutil" description="Manipulate iso disk images">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="history" description="Command History">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="hostname" description="Print or set system name">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="iconv" description="Convert the character set of a file">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="id" description="Print user and group names/ids">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="info" description="Help info">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="install" description="Copy files and set attributes">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="jobs" description="List active jobs">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="join" description="Join lines on a common field">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="kextfind" description="List kernel extensions">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="kickstart" description="Configure Apple Remote Desktop">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="kill" description="Stop a process from running">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="last" description="Indicate last logins of users and ttys">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="launchctl" description="Load or unload daemons/agents">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="less" description="Display output one screen at a time">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="let" description="Evaluate expression">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="lipo" description="Convert a universal binary">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="ln" description="Make links between files (hard links, symbolic links)">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="local" description="Set a local (function) variable">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="locate" description="Find files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="logname" description="Print current login name">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="login" description="log into the computer">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="logout" description="Exit a login shell (bye)">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="lpr" description="Print files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="lprm" description="Remove jobs from the print queue">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="lpstat" description="Printer status information">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="ls" description="List information about file(s)">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="lsbom" description="List a bill of materials file">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="lsof" description="List open files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="man" description="Help manual">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="mdfind" description="Spotlight search">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="mdutil" description="Manage Spotlight metadata store">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="mkdir" description="Create new folder(s)">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="mkfifo" description="Make FIFOs (named pipes)">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="more" description="Display output one screen at a time">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="mount" description="Mount a file system">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="mv" description="Move or rename files or directories">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="net" description="Manage network resources">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="netstat" description="Show network status">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="nice" description="Set the priority of a command">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="nohup" description="Run a command immune to hangups">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="ntfs.util" description="NTFS file system utility">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="onintr" description="Control the action of a shell interrupt">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="open" description="Open a file/folder/URL/Application">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="opensnoop" description="Snoop file opens as they occur">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="passwd" description="Modify a user password">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="paste" description="Merge lines of files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="pbcopy" description="Copy data to the clipboard">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="pbpaste" description="Paste data from the Clipboard">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="pico" description="Simple text editor">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="ping" description="Test a network connection">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="pkgutil" description="Query and manipulate installed packages">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="plutil" description="Property list utility">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="pmset" description="Power Management settings">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="popd" description="Restore the previous value of the current directory">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="pr" description="Convert text files for printing">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="printenv" description="List environment variables">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="printf" description="Format and print data">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="ps" description="Process status">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="pushd" description="Save and then change the current directory">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="pwd" description="Print Working Directory">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="quota" description="Display disk usage and limits">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="rcp" description="Copy files between machines">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="read" description="Read one line from standard input">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="readonly" description="Mark a variable or function as read-only">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="reboot" description="Stop and restart the system">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="return" description="Exit a function">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="rev" description="Reverse lines of a file">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="rm" description="Remove files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="rmdir" description="Remove folder(s)">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="rpm" description="Remote Package Manager">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="rsync" description="Remote file copy - Sync file tree (also RsyncX)">
-		<option name="string" description="arguments"/>
+		<option name="-a" description="/--append          Append to target file when uploading (F)"/>
+		<option name="-A" description="/--user-agent string User-Agent to send to server (H)"/>
+		<option name="--anyauth" description="         Pick any authentication method (H)"/>
+		<option name="-b" description="/--cookie name=string/file Cookie string or file to read cookies from (H)"/>
+		<option name="--basic" description="           Use HTTP Basic Authentication (H)"/>
+		<option name="-B" description="/--use-ascii       Use ASCII/text transfer"/>
+		<option name="-c" description="/--cookie-jar file Write cookies to this file after operation (H)"/>
+		<option name="-C" description="/--continue-at offset Resumed transfer offset"/>
+		<option name="-d" description="/--data data       HTTP POST data (H)"/>
+		<option name="--data-ascii" description=" data  HTTP POST ASCII data (H)"/>
+		<option name="--data-binary" description=" data HTTP POST binary data (H)"/>
+		<option name="--negotiate" description="       Use HTTP Negotiate Authentication (H)"/>
+		<option name="--digest" description="          Use HTTP Digest Authentication (H)"/>
+		<option name="--disable-eprt" description="    Inhibit using EPRT or LPRT (F)"/>
+		<option name="--disable-epsv" description="    Inhibit using EPSV (F)"/>
+		<option name="-D" description="/--dump-header file Write the headers to this file"/>
+		<option name="--egd-file" description=" file   EGD socket path for random data (SSL)"/>
+		<option name="--tcp-nodelay" description="     Use the TCP_NODELAY option"/>
+		<option name="-e" description="/--referer         Referer URL (H)"/>
+		<option name="-E" description="/--cert cert[:passwd] Client certificate file and password (SSL)"/>
+		<option name="--cert-type" description=" type  Certificate file type (DER/PEM/ENG) (SSL)"/>
+		<option name="--key" description=" key         Private key file name (SSL/SSH)"/>
+		<option name="--key-type" description=" type   Private key file type (DER/PEM/ENG) (SSL)"/>
+		<option name="--pass" description="  pass      Pass phrase for the private key (SSL/SSH)"/>
+		<option name="--pubkey" description=" key      Public key file name (SSH)"/>
+		<option name="--engine" description=" eng      Crypto engine to use (SSL). --engine list for list"/>
+		<option name="--cacert" description=" file     CA certificate to verify peer against (SSL)"/>
+		<option name="--capath" description=" directory CA directory (made using c_rehash) to verify peer against (SSL)"/>
+		<option name="--ciphers" description=" list    SSL ciphers to use (SSL)"/>
+		<option name="--compressed " description="     Request compressed response (using deflate or gzip)"/>
+		<option name="--connect-timeout" description=" seconds Maximum time allowed for connection"/>
+		<option name="--create-dirs" description="     Create necessary local directory hierarchy"/>
+		<option name="--crlf" description="            Convert LF to CRLF in upload"/>
+		<option name="-f" description="/--fail            Fail silently (no output at all) on HTTP errors (H)"/>
+		<option name="--ftp-account" description=" data Account data to send when requested by server (F)"/>
+		<option name="--ftp-alternative-to-user" description=" String to replace USER [name] (F)"/>
+		<option name="--ftp-create-dirs" description=" Create the remote dirs if not present (F)"/>
+		<option name="--ftp-method" description=" [multicwd/nocwd/singlecwd] Control CWD usage (F)"/>
+		<option name="--ftp-pasv" description="        Use PASV/EPSV instead of PORT (F)"/>
+		<option name="--ftp-skip-pasv-ip" description=" Skip the IP address for PASV (F)"/>
+		<option name=" --ftp-ssl" description="         Try SSL/TLS for ftp transfer (F)"/>
+		<option name=" --ftp-ssl-control" description=" Require SSL/TLS for ftp login, clear for transfer (F)"/>
+		<option name="--ftp-ssl-reqd" description="    Require SSL/TLS for ftp transfer (F)"/>
+		<option name="--ftp-ssl-ccc" description="     Send CCC after authenticating (F)"/>
+		<option name="--ftp-ssl-ccc-mode" description=" [active/passive] Set CCC mode (F)"/>
+		<option name="-F" description="/--form name=content Specify HTTP multipart POST data (H)"/>
+		<option name="--form-string" description=" name=string Specify HTTP multipart POST data (H)"/>
+		<option name="-g" description="/--globoff         Disable URL sequences and ranges using {} and []"/>
+		<option name="-G" description="/--get             Send the -d data with a HTTP GET (H)"/>
+		<option name="-h" description="/--help            This help text"/>
+		<option name="-H" description="/--header line     Custom header to pass to server (H)"/>
+		<option name="--ignore-content-length" description="  Ignore the HTTP Content-Length header"/>
+		<option name="-i" description="/--include         Include protocol headers in the output (H/F)"/>
+		<option name="-I" description="/--head            Show document info only"/>
+		<option name="-j" description="/--junk-session-cookies Ignore session cookies read from file (H)"/>
+		<option name="--interface" description=" interface Specify network interface/address to use"/>
+		<option name="--krb" description=" level       Enable kerberos with specified security level (F)"/>
+		<option name="-k" description="/--insecure        Allow connections to SSL sites without certs (H)"/>
+		<option name="-K" description="/--config          Specify which config file to read"/>
+		<option name="--libcurl" description=" file    Dump libcurl equivalent code of this command line"/>
+		<option name="-l" description="/--list-only       List only names of an FTP directory (F)"/>
+		<option name="--limit-rate" description=" rate Limit transfer speed to this rate"/>
+		<option name="--local-port" description=" num[-num] Force use of these local port numbers"/>
+		<option name="-L" description="/--location        Follow Location: hints (H)"/>
+		<option name="--location-trusted" description=" Follow Location: and send authentication even to other hostnames (H)"/>
+		<option name="-m" description="/--max-time seconds Maximum time allowed for the transfer"/>
+		<option name="--max-redirs" description=" num  Maximum number of redirects allowed (H)"/>
+		<option name="--max-filesize" description=" bytes Maximum file size to download (H/F)"/>
+		<option name="-M" description="/--manual          Display the full manual"/>
+		<option name="-n" description="/--netrc           Must read .netrc for user name and password"/>
+		<option name="--netrc-optional" description="  Use either .netrc or URL; overrides -n"/>
+		<option name="--ntlm" description="            Use HTTP NTLM authentication (H)"/>
+		<option name="-N" description="/--no-buffer       Disable buffering of the output stream"/>
+		<option name="--no-sessionid" description="    Disable SSL session-ID reusing (SSL)"/>
+		<option name="-o" description="/--output file     Write output to file instead of stdout"/>
+		<option name="-O" description="/--remote-name     Write output to a file named as the remote file"/>
+		<option name="-p" description="/--proxytunnel     Operate through a HTTP proxy tunnel (using CONNECT)"/>
+		<option name="--proxy-anyauth" description="   Pick any proxy authentication method (H)"/>
+		<option name="--proxy-basic" description="     Use Basic authentication on the proxy (H)"/>
+		<option name="--proxy-digest" description="    Use Digest authentication on the proxy (H)"/>
+		<option name="--proxy-ntlm" description="      Use NTLM authentication on the proxy (H)"/>
+		<option name="-P" description="/--ftp-port address Use PORT with address instead of PASV (F)"/>
+		<option name="-q" description="                   If used as the first parameter disables .curlrc"/>
+		<option name="-Q" description="/--quote cmd       Send command(s) to server before file transfer (F/SFTP)"/>
+		<option name="-r" description="/--range range     Retrieve a byte range from a HTTP/1.1 or FTP server"/>
+		<option name="--random-file" description=" file File for reading random data from (SSL)"/>
+		<option name="--raw" description="             Pass HTTP raw, without any transfer decoding (H)"/>
+		<option name="-R" description="/--remote-time     Set the remote file's time on the local output"/>
+		<option name="--retry" description=" num       Retry request num times if transient problems occur"/>
+		<option name="--retry-delay" description=" seconds When retrying, wait this many seconds between each"/>
+		<option name="--retry-max-time" description=" seconds Retry only within this period"/>
+		<option name="-s" description="/--silent          Silent mode. Don't output anything"/>
+		<option name="-S" description="/--show-error      Show error. With -s, make curl show errors when they occur"/>
+		<option name="--socks4" description=" host[:port] Use SOCKS4 proxy on given host + port"/>
+		<option name="--socks5" description=" host[:port] Use SOCKS5 proxy on given host + port"/>
+		<option name="--stderr" description=" file Where to redirect stderr. - means stdout"/>
+		<option name="-t" description="/--telnet-option OPT=val Set telnet option"/>
+		<option name="--trace" description=" file      Write a debug trace to the given file"/>
+		<option name="--trace-ascii" description=" file Like --trace but without the hex output"/>
+		<option name="--trace-time" description="      Add time stamps to trace/verbose output"/>
+		<option name="-T" description="/--upload-file file Transfer file to remote site"/>
+		<option name="--url" description=" URL         Set URL to work with"/>
+		<option name=" -u" description="/--user user[:password] Set server user and password"/>
+		<option name="-U" description="/--proxy-user user[:password] Set proxy user and password"/>
+		<option name="-v" description="/--verbose         Make the operation more talkative"/>
+		<option name="-V" description="/--version         Show version number and quit"/>
+		<option name="-w" description="/--write-out [format] What to output after completion"/>
+		<option name="-x" description="/--proxy host[:port] Use HTTP proxy on given port"/>
+		<option name="-X" description="/--request command Specify request command to use"/>
+		<option name="-y" description="/--speed-time      Time needed to trig speed-limit abort. Defaults to 30"/>
+		<option name="-Y" description="/--speed-limit     Stop transfer if below speed-limit for 'speed-time' secs"/>
+		<option name="-z" description="/--time-cond time  Transfer based on a time condition"/>
+		<option name="-0" description="/--http1.0         Use HTTP 1.0 (H)"/>
+		<option name="-1" description="/--tlsv1           Use TLSv1 (SSL)"/>
+		<option name="-2" description="/--sslv2           Use SSLv2 (SSL)"/>
+		<option name="-3" description="/--sslv3           Use SSLv3 (SSL)"/>
+		<option name="-4" description="/--ipv4            Resolve name to IPv4 address"/>
+		<option name="-6" description="/--ipv6            Resolve name to IPv6 address"/>
+		<option name="-#" description="/--progress-bar    Display transfer progress as a progress bar"/>
 	</command>
 	<command name="say" description="Convert text to audible speech">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="screen" description="Multiplex terminal, run remote shells via ssh">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="sdiff" description="Merge two files interactively">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="sed" description="Stream Editor">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="select" description="Generate a list of items">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="set" description="Set a shell variable = value">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="setfile" description="Set attributes of HFS+ files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="shift" description="Shift positional parameters">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="shopt" description="Set shell options">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="shutdown" description="Shutdown or restart OS X">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="sips" description="Scriptable image processing system">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="sleep" description="Delay for a specified time">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="sort" description="Sort text files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="source" description="Execute commands from a file">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="split" description="Split a file into fixed-size pieces">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="stop" description="Stop a job or process">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="su" description="Substitute user identity">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="sudo" description="Execute a command as another user">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="sum" description="Print a checksum for a file">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="suspend" description="Suspend execution of this shell">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="sw_vers" description="Print Mac OS X operating system version">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="tail" description="Output the last part of files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="tar" description="Tape ARchiver">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="tee" description="Redirect output to multiple files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="test" description="Condition evaluation">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="textutil" description="Manipulate text files in various formats (Doc,html,rtf)">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="time" description="Measure Program Resource Use">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="times" description="Print shell &amp; shell process times">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="top" description="Display process information">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="touch" description="Change file timestamps">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="tr" description="Translate, squeeze, and/or delete characters">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="trap" description="Execute a command when the shell receives a signal">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="true" description="Do nothing, successfully">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="tty" description="Print filename of terminal on stdin">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="type" description="Describe a command">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="ufs.util" description="Mount/unmount UFS file system">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="ulimit" description="limit the use of system-wide resources">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="umask" description="Users file creation mask">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="umount" description="Unmount a device">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="unalias" description="Remove an alias">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="uname" description="Print system information">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="unexpand" description="Convert spaces to tabs">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="uniq" description="Uniquify files">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="units" description="Convert units from one scale to another">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="unset" description="Remove variable or function names">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="until" description="Loop command">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="uptime" description="Show how long system has been running">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="users" description="Print login names of users currently logged in">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="uuencode" description="Encode a binary file">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="uudecode" description="Decode a file created by uuencode">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="uuidgen" description="Generate a Unique ID (UUID/GUID)">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="uucp" description="Unix to Unix copy">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="wait" description="Wait for a process to complete">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="wc" description="Print byte, word, and line counts">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="whatis" description="Search the whatis database for complete words">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="where" description="Report all known instances of a command">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="which" description="Locate a program file in the user's path">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="while" description="Loop command">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="who" description="Print all usernames currently logged on">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="whoami" description="Print the current user id and name (`id -un')">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="write" description="Send a message to another user">
-		<option name="string" description="arguments"/>
+		<option name="string" description="   The text to speak on the command line.              This can consist of multiple arguments, which are              considered to be separated by spaces."/>
+		<option name="-f" description=" file  A file to be spoken.              If file is - or neither this parameter nor a message              is specified, read from standard input."/>
+		<option name="-v" description=" voice The voice to be used: Alex, Bruce, Fred, Kathy, Vicki or Victoria              Default is the voice selected in System Preferences | Speech"/>
+		<option name="-o" description=" out.aiff An AIFF file to be written."/>
 	</command>
 	<command name="xargs" description="Execute utility - passing arguments">
-		<option name="string" description="arguments"/>
-	</command>
-	<command name="yes" description="Print a string until interrupted">
-		<option name="string" description="arguments"/>
+		<option name="-0      Change xargs to expect NUL (\0) characters as separators,        instead of spaces and newlines.  This is expected to be used in        concert with the -print0 function in find."/>
+		<option name="-E" description=" eofstr        Use eofstr as a logical EOF marker."/>
+		<option name="-I" description=" replstr        Execute utility for each input line, replacing one or more        occurences of replstr in up to replacements (or 5 if no -R flag        is specified) arguments to utility with the entire line of input.        The resulting arguments, after replacement is done, will not be        allowed to grow beyond 255 bytes; this is implemented by concate-        nating as much of the argument containing replstr as possible, to        the constructed arguments to utility, up to 255 bytes.  The 255        byte limit does not apply to arguments to utility which do not        contain replstr, and furthermore, no replacement will be done on        utility itself.  Implies -x."/>
+		<option name="-J" description=" replstr        If this option is specified, xargs will use the data read from        standard input to replace the first occurrence of replstr instead        of appending that data after all other arguments. This option        will not effect how many arguments will be read from input (-n),        or the size of the command(s) xargs will generate (-s).  The        option just moves where those arguments will be placed in the        command(s) that are executed.  The replstr must show up as a dis-        tinct argument to xargs.  It will not be recognized if, for        instance, it is in the middle of a quoted string. Furthermore,        only the first occurrence of the replstr will be replaced.  For        example, the following command will copy the list of files and        directories which start with an uppercase letter in the current        directory to destdir:        /bin/ls -1d [A-Z]* | xargs -J % cp -rp % destdir"/>
+		<option name="-L" description=" number        Call utility for every number lines read. If EOF is reached and        fewer lines have been read than number then utility will be        called with the available lines."/>
+		<option name="-n" description=" number        Set the maximum number of arguments taken from standard input for        each invocation of the utility.  An invocation of utility will        use less than number standard input arguments if the number of        bytes accumulated (see the -s option) exceeds the specified size        or there are fewer than number arguments remaining for the last        invocation of utility.  The current default value for number is        5000."/>
+		<option name="-p" description="      Echo each command to be executed and ask the user whether it        should be executed.  An affirmative response, `y' in the POSIX        locale, causes the command to be executed, any other response        causes it to be skipped.  No commands are executed if the process        is not attached to a terminal."/>
+		<option name="-R" description=" replacements        Specify the maximum number of arguments that -I will do replace-        ment in."/>
+		<option name="-s" description=" size        Set the maximum number of bytes for the command line length pro-        vided to utility. The sum of the length of the utility name, the        arguments passed to utility (including NULL terminators) and the        current environment will be less than or equal to this number.        The current default value for size is ARG_MAX - 4096."/>
+		<option name="-t" description="      Echo the command to be executed to standard error immediately        before it is executed."/>
+		<option name="-x" description="      Force xargs to terminate immediately if a command line containing        number arguments will not fit in the specified (or default) com-        mand line length."/>
 	</command>
 </commands>
