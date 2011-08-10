@@ -14,43 +14,57 @@ Controller.prototype.addCommand = function(command){
 	this.commands.push(command)
 }
 
-Controller.prototype.addArguments = function(e) {
-	var argument = e.target.parentNode.querySelector(".name").textContent
-	// use an empty argumument for string values such-as #echo string
-	if (argument == "string") argument = "";
-	if (e.target.parentNode.hasClassName("prompt")) {
-		var prompt = window.prompt("arguments?")
-		if(!prompt) return
-		argument = argument + " " + prompt;
-	}
-	
-	
-	
- 	var name = e.currentTarget.getAttribute("rel")
-	var index  = 0;
+Controller.prototype.removeCommand = function(command){
+	var index = rindex = 0;
 	this.commands.forEach(function(i){
 		if (i.indexOf(name) != -1) {
-			if (i.indexOf(argument) != -1)  index = -1
+			index = rindex
 			return
 		}
-		index++;
+		rindex++;
 	});
-	if (index != -1) this.commands[index] = this.commands[index] + " " + argument
-	console.log(this.commands)
+	this.commands.splice(index, 1)
 }
 
-Controller.prototype.hideArguments = function(e) {
-	
+Controller.prototype.removeNode = function(e){
+	if (!e.altKey) return // alt + click
+	var name = e.target.parentNode.getElementsByTagName("text")[0].textContent
+	this.removeCommand(name)
+	document.documentElement.removeChild(e.target.parentNode)
+	this.nodes--;
+	var nodes = document.getElementsByClassName("node")
+	for (var n=0, i=0;i<nodes.length;i++){
+		if (nodes[i].hasAttribute("id")) continue
+		nodes[i].setAttribute("transform", "translate("+(++n*100)+",100)");
+	}
+}
+
+Controller.prototype.addArguments = function(e) {
+ 	var name = e.currentTarget.getAttribute("rel")
+	var index = rindex = 0;
+	this.commands.forEach(function(i){
+		if (i.indexOf(name) != -1) {
+			index = rindex
+			return
+		}
+		rindex++;
+	});
+	var prompt = window.prompt("arguments?", this.commands[index].replace(name, ""))
+	if(!prompt) return
+	this.commands[index] = name + " " + prompt
 }
 
 Controller.prototype.showArguments = function(e) {
+	if (e.altKey) return
 	if (e.target.tagName != "rect" && e.target.tagName != "text") return
 	var self = this;
 	
-	function hide(){
+	function hide(e){
+		if(e.target != document.documentElement) return
+		//	if(e.target.parentNode.getAttribute("class") != "prompt") return
 		var argumentMenu = document.getElementById("argumentsMenu")
 		document.documentElement.removeChild(argumentMenu);
-		document.removeEventListener("click", hide,true)	
+		document.removeEventListener("click", hide,false)	
 	}
 	
 	function show(argumentList, command){
@@ -66,7 +80,7 @@ Controller.prototype.showArguments = function(e) {
 		clonedArguments.addEventListener("click", self.addArguments.bind(self),false)
 		foreignObject.appendChild(clonedArguments)
 		document.documentElement.appendChild(foreignObject)
-		document.addEventListener("click", hide,true)
+		document.addEventListener("click", hide,false)
 	}
 	 
 	var command = e.currentTarget.getElementsByTagName("text")[0].textContent
@@ -117,7 +131,8 @@ Controller.prototype.selectNewCommand = function(event) {
 	this.commandMenu.setAttribute("transform", event.target.parentNode.getAttribute("transform"));
 	this.commandMenu.addClassName("active");
 	// remove endpoint class
-	event.target.parentNode.removeClassName("endpoint");
+	if(event.target.getAttribute("class") == "start")
+		event.target.parentNode.removeClassName("endpoint");
 }
 
 
@@ -138,5 +153,6 @@ Controller.prototype.createNode = function() {
 	node.childNodes[3].textContent = this.getCommands()[this.nodes-1];
 	node.setAttribute("transform", "translate("+(this.nodes*100)+",100)");
 	node.querySelector(".end").addEventListener("click", this.selectNewCommand.bind(this),false)
+	node.getElementsByTagName("rect")[0].addEventListener("click", this.removeNode.bind(this),false)
 	document.documentElement.insertBefore(node, this.commandMenu)
 }
